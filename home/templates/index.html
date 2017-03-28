@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block content %}
+    <header>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <!-- Slide One - Set the background image for this slide in the line below -->
+                <div class="carousel-item active carouselpic" style="background-image: url('/static/img/dj.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2><em>'Hirecycle helped me nail my first gig!'</em></h2>
+                        <p>Jack, DJ and social media guru</p>
+                    </div>
+                </div>
+                <!-- Slide Two - Set the background image for this slide in the line below -->
+                <div class="carousel-item carouselpic" style="background-image: url('/static/img/charity.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                       <h2><em>'Smashed our €5,000 fundraising target with a little help from Hirecycle'</em></h2>
+                        <p>Katy, Do-gooder @ Enable Ireland</p>
+                    </div>
+                </div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+                <div class="carousel-item carouselpic" style="background-image: url('/static/img/scuba.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                       <h2><em>'Hired a go-pro and made friends with a turtle'</em></h2>
+                        <p>Scuba Steve, Underwater explorer  </p>
+                    </div>
+                </div>
+                <!-- Slide Four - Set the background image for this slide in the line below -->
+                <div class="carousel-item carouselpic" style="background-image: url('/static/img/musicfest.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                       <h2><em>'Our first festival was a hit - will be calling on Hirecycle again to kit us out for our next'</em></h2>
+                        <p>Dave, Sound technician @ Soundstream music festival</p>
+                    </div>
+                </div>
+                <!-- Slide Five - Set the background image for this slide in the line below -->
+                <div class="carousel-item carouselpic" style="background-image: url('/static/img/holi.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                       <h2><em>'Holi was amazing! Captured everything in colour thanks to Hirecycle!'</em></h2>
+                        <p>Anika, IndianSoc Event Organiser @ Trinity College Dublin </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+        <h1><span id="homepageheader">Hirecycle:</span> your one-stop shop for audio and video equipment hire</h1>
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <h4 class="card-header">Got cash, want equipment?</h4>
+                    <div class="card-block">
+                        <p class="card-text">Are you looking to hire audio or video equipment for an upcoming event? New ads are
+                        being posted everyday offering great kit at competitive rates.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-success">Browse ads</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <h4 class="card-header">Got equipment, want cash?</h4>
+                    <div class="card-block">
+                        <p class="card-text">Have you got equipment that you want to hire out? Live a richer life by
+                        advertising your kit on Hirecycle.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-success">Post an ad</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <h4 class="card-header">Learn how Hirecycle works</h4>
+                    <div class="card-block">
+                        <p class="card-text">Hirecycle's goal is to make second-hand video and audio equipment
+                            available to everyone. We're creating a community that shares, recyles and takes
+                            care of our environment.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-success">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+{% endblock %}

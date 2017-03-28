@@ -1,6 +1,5 @@
 {% load static from staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
 
@@ -10,19 +9,19 @@
 
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Hi:re:cycle</title>
+    <title>Hirecycle</title>
 
     <!-- Override browser default settings -->
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/norma‌​lize.min.css">
-
-    <!-- Custom CSS -->
-    <link href="{% static "css/custom.css" %}" rel="stylesheet">
 
     <!-- Bootstrap Core CSS -->
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
 
     <!-- Modern Business CSS -->
     <link href="{% static "css/modern-business.css" %}" rel="stylesheet">
+
+       <!-- Custom CSS -->
+    <link href="{% static "css/custom.css" %}" rel="stylesheet">
 
 
     <style>
@@ -57,20 +56,20 @@
         </button>
         <div class="container">
             <img id="logoNav" src="{% static "img/logo5060.svg" %}">
-            <a class="navbar-brand" href="index">Hi:re:cycle</a>
+            <a class="navbar-brand" href="{% url 'index' %}">Hi<span id="re">re</span>cycle</a>
             <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="{% url 'advertdetails' %}" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Browse ads
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">

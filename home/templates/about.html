@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block content %}
+<div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1>About Hirecycle</h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="index.html">Home</a>
+        </li>
+        <li class="breadcrumb-item active">About</li>
+    </ol>
+
+    <!-- Intro Content -->
+    <div class="row">
+        <div class="col-lg-6">
+            <img class="img-fluid rounded" src="{% static "/img/wildlifephotographer.jpg" %}">
+        </div>
+        <div class="col-lg-6">
+            <h4>Where it all began...</h4>
+            <p>A guy called Dave likes cameras. He meets a girl called Rachel who wants to shoot a documentary about climate change.
+                Rachel wants to help the environment. Dave wants to help Rachel. So he lends her his trusty old JVC GR-C7 camcorder.</p>
+             <h4>Where we are today...</h4>
+            <p>Dave and Rachel are still friends and are firm believers in the fact that reducing, reusing and recycling electronics is one of the simplest and most
+                effective ways to help our environment. This is why Dave founded Hirecycle - a community that, through recycling, makes second-hand audio and video equipment
+            accessible and affordable for everyone. </p>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Team Members -->
+    <hr>
+    <h2>Our Team</h2>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card h-100 text-center">
+                <img class="card-img-top img-fluid" src="{% static "/img/man.jpg" %}" alt="">
+                <div class="card-block">
+                    <h4 class="card-title">Joe Cotton</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Customer Support</h6>
+                    <p class="card-text">Got a question about posting or responding to an ad? Joe is your man. Joe is a
+                        bit of
+                        a wizard so he's a handy guy to have on hand if you run into any technical issues.</div>
+                <div class="card-footer">
+                    <a href="#">joecotton@hirecylce.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card h-100 text-center">
+                <img class="card-img-top img-fluid" src="{% static "/img/woman3.jpg" %}" alt="">
+                <div class="card-block">
+                    <h4 class="card-title">Ella Boyle</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Finance support</h6>
+                    <p class="card-text">Got a question about payments or insurance cover? Ella can help with that. Ella
+                        is a
+                        numbers buff and a qualified solicitor so rest assured you'll be in safe hands.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#">ellaboyle@hirecylce.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card h-100 text-center">
+                <img class="card-img-top img-fluid" src="{% static "/img/man2.jpg" %}" alt="">
+                <div class="card-block">
+                    <h4 class="card-title">Dave Simmons</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Founder and CEO</h6>
+                    <p class="card-text">Dave is a photography geek who occasionally likes to hug trees. If you've got
+                        feedback on
+                        this site or service, Dave is all ears!
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a href="#">davesimmons@hirecylce.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- /.container -->
+{% endblock %}

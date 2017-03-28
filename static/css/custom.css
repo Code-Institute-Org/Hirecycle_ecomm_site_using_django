@@ -11,3 +11,15 @@
 #homepageheader{
     color: rgb(61,170,0);
 }
+
+.card-header{
+    margin-top: 0px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin-top: 0px;
+}
+
+#re{
+    color: #66ff00;
+}

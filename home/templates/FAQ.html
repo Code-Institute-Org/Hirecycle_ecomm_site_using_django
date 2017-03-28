@@ -28,7 +28,7 @@
                     <div class="card-block">
                         <p>Hirecycle's goal is to make second-hand audio and video equipment
                             accessible and affordable for everyone. We've created a community that shares, recyles and
-                            takes care of our environment. For more info, check out our <a href="{% static "about" %}">about</a> page.</p>
+                            takes care of our environment. For more info, check out our <a href="{% url "about" %}">about</a> page.</p>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                 </div>
                 <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
                     <div class="card-block">
-                        <p>We'd be happy to help. Please drop <a href="joecotton@hirecylce.com">Joe</a>, our Customer Service Lead an email
+                        <p>We'd be happy to help. Please drop <a href="mailto:nakitamccool@gmail.com">Joe</a>, our Customer Service Lead an email
                         with your query and contact details. He'll be in touch and will help you decide on a rate.</p>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
                 </div>
                 <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
                     <div class="card-block">
-                        <p>Please drop <a href="ellaboyle@hirecylce.com">Ella</a>, our Finance Lead an email
+                        <p>Please drop <a href="mailto:nakitamccool@gmail.com">Ella</a>, our Finance Lead an email
                         with your query and contact details. She'll be more than happy to help. </p>
                     </div>
                 </div>
@@ -134,18 +134,18 @@
             <!--END FAQ6-->
             <!-- FAQ7 -->
             <div class="card">
-                <div class="card-header" role="tab" id="headingEight">
+                <div class="card-header" role="tab" id="headingSeven">
                     <h5 class="mb-0">
                         <a class="FAQitem fa fa-question" class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                           href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                           href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                             I need to report an ad or a user. How do I do this?
                         </a>
                     </h5>
                 </div>
-                <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight">
+                <div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingSeven">
                     <div class="card-block">
                         <p>We're sorry to hear you've stumbled across an issue with an ad and/or a user. Here is a link to our <a
-                                href="#">contact form</a> where you can leave us a message. We'll try to get this resolved as quickly
+                                href="{% url "ContactUs" %}">contact form</a> where you can leave us a message. We'll try to get this resolved as quickly
                             as possible.</p>.
                     </div>
                 </div>
@@ -164,7 +164,7 @@
                 <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight">
                     <div class="card-block">
                         <p>Please send an email to our CEO
-                            <a href="davesimmons@hirecylce.com">Dave</a>. Make sure to include your CV as well as any links
+                            <a href="mailto:nakitamccool@gmail.com">Dave</a>. Make sure to include your CV as well as any links
                         to anything you think might be of interest (e.g. linkedin, twitter, github).</p>.
                     </div>
                 </div>
@@ -183,8 +183,8 @@
                 <div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="headingNine">
                     <div class="card-block">
                         <p>Great news - we are always keen to hear feedback! Please send an email to our CEO
-                            <a href="davesimmons@hirecylce.com">Dave</a> or alternatively you can use our <a
-                                href="#">contact form</a> </p>.
+                            <a href="mailto:nakitamccool@gmail.com">Dave</a> or alternatively you can use our <a
+                                href="{% url "ContactUs" %}">contact form</a>.</p>
                     </div>
                 </div>
             </div>
@@ -202,7 +202,7 @@
                 <div id="collapseTen" class="collapse" role="tabpanel" aria-labelledby="headingTen">
                     <div class="card-block">
                         <p>Here is a link to our <a
-                                href="#">contact form</a> where you can leave us a message. We aim to get back to you within
+                                href="{% url "ContactUs" %}">contact form</a> where you can leave us a message. We aim to get back to you within
                         24 hours and will do our best to help you find an answer/ solution.</p>.
                     </div>
                 </div>

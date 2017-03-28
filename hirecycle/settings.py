@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'adverts',
     'accounts',
     'home',
+    'contactus',
     # 'debug_toolbar',
 ]
 

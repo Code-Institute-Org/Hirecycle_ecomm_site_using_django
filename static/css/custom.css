@@ -1,3 +1,11 @@
+/*Ensures fixed header doesn't overlap with content on page*/
+body {
+    padding-top: 66px;
+}
+footer{
+    margin-top: 10px;
+}
+
 #logoNav{
     margin-right: 15px;
 }
@@ -16,10 +24,36 @@
     margin-top: 0px;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1{
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+h2, h3, h4, h5, h6{
     margin-top: 0px;
 }
 
 #re{
     color: #66ff00;
 }
+
+h4.card-header,ol.breadcrumb{
+    background-color: #eaf6ea;
+}
+
+div.card-footer{
+    background-color: transparent;
+    border-top: none;
+}
+
+a.btn.btn-success{
+    float: right;
+}
+div.card-header{
+    background-color: transparent;
+}
+
+a.FAQitem{
+    text-decoration: none;
+    color: #3daa00;
+}
+

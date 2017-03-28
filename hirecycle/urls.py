@@ -17,7 +17,7 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from adverts import urls as adverts_urls
 from accounts import urls as accounts_urls
-from home.views import index, about
+from home.views import index, about, FAQ
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^index/', index, name='index'),
     url(r'^about/', about, name='about'),
+    url(r'^FAQ/', FAQ, name='FAQ'),
     url(r'^ads/', include(adverts_urls)),
     url(r'^account/', include(accounts_urls)),
 ]

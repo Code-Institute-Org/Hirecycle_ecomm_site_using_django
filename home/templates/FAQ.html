@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% block content %}
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1>FAQ</h1>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">FAQ</li>
+        </ol>
+
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+            <!-- FAQ1 -->
+            <div class="card">
+                <div class="card-header" role="tab" id="headingOne">
+                    <h5 class="mb-0">
+                        <a class="FAQitem fa fa-question" class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What is Hirecycle?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="card-block">
+                        <p>Hirecycle's goal is to make second-hand audio and video equipment
+                            accessible and affordable for everyone. We've created a community that shares, recyles and
+                            takes care of our environment. For more info, check out our <a href="{% static "about" %}">about</a> page.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- END FAQ1-->
+            <!-- FAQ2 -->
+            <div class="card">
+                <div class="card-header" role="tab" id="headingTwo">
+                    <h5 class="mb-0">
+                        <a class="FAQitem fa fa-question" class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            How do I create a Hirecycle account?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="card-block">
+                        <p>If you don’t yet have an Hirecycle account you can go to our <a href="{% url "register" %}">registration
+                            page</a>. (Alternatively you can use the 'Register' button which can be found on the navigation bar at
+                            the top of this page). Enter your details and click ‘Create account’. Please note your username will be publicly
+                            displayed on the site.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- END FAQ2 -->
+            <!-- FAQ3 -->
+            <div class="card">
+                <div class="card-header" role="tab" id="headingThree">
+                    <h5 class="mb-0">
+                        <a class="FAQitem fa fa-question" class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            How do I post a new ad?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="card-block">
+                        <p>You can post a new ad <a href="#">here</a>. Fill out the form and click submit.
+                            Your ad will now appear in your own personal <a href="{% url "profile" %}">profile</a> as
+                            well
+                            as the public <a href="{% url "advertlist" %}">all ads</a> page</p>.
+                    </div>
+                </div>
+            </div>
+            <!-- END FAQ3 -->
+            <!-- FAQ4 -->
+            <div class="card">
+                <div class="card-header" role="tab" id="headingFour">
+                    <h5 class="mb-0">
+                        <a class="FAQitem fa fa-question" class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            How do I edit an existing ad?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="card-block">
+                        <p>You can view your existing ads by navigating to your <a
+                                href="{% url "profile" %}">profile</a> page. Find the ad
+                            you wish to edit and click on the edit button. This will open up a form to make your
+                            changes. Once you are happy, click
+                            submit and your changes will be saved. Your updated ad can now be viewed in your own
+                            personal <a href="{% url "profile" %}">profile</a> as well
+                            as the public <a href="{% url "advertlist" %}">all ads</a> page</p>.
+                    </div>
+                </div>
+            </div>
+            <!-- END FAQ4 -->
+            <!-- FAQ5 -->
+            <div class="card">
+                <div class="card-header" role="tab" id="headingFive">
+                    <h5 class="mb-0">
+                        <a class="FAQitem fa fa-question" class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                           I'm creating an advert but need some advice on how to set my rental rate. Can you help?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+                    <div class="card-block">
+                        <p>We'd be happy to help. Please drop <a href="joecotton@hirecylce.com">Joe</a>, our Customer Service Lead an email
+                        with your query and contact details. He'll be in touch and will help you decide on a rate.</p>
+                    </div>
+                </div>
+            </div>
+            <!--END FAQ5 -->
+            <!-- END FAQ6 -->
+            <div class="card">
+                <div class="card-header" role="tab" id="headingSix">
+                    <h5 class="mb-0">
+                        <a class="FAQitem fa fa-question" class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            I need some advice on insurance and payment options? Who should I contact?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+                    <div class="card-block">
+                        <p>Please drop <a href="ellaboyle@hirecylce.com">Ella</a>, our Finance Lead an email
+                        with your query and contact details. She'll be more than happy to help. </p>
+                    </div>
+                </div>
+            </div>
+            <!--END FAQ6-->
+            <!-- FAQ7 -->
+            <div class="card">
+                <div class="card-header" role="tab" id="headingEight">
+                    <h5 class="mb-0">
+                        <a class="FAQitem fa fa-question" class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            I need to report an ad or a user. How do I do this?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight">
+                    <div class="card-block">
+                        <p>We're sorry to hear you've stumbled across an issue with an ad and/or a user. Here is a link to our <a
+                                href="#">contact form</a> where you can leave us a message. We'll try to get this resolved as quickly
+                            as possible.</p>.
+                    </div>
+                </div>
+            </div>
+            <!--END FAQ7 -->
+            <!-- FAQ8 -->
+            <div class="card">
+                <div class="card-header" role="tab" id="headingEight">
+                    <h5 class="mb-0">
+                        <a class="FAQitem fa fa-question" class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            I'd like to work for Hirecycle. How do I apply?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight">
+                    <div class="card-block">
+                        <p>Please send an email to our CEO
+                            <a href="davesimmons@hirecylce.com">Dave</a>. Make sure to include your CV as well as any links
+                        to anything you think might be of interest (e.g. linkedin, twitter, github).</p>.
+                    </div>
+                </div>
+            </div>
+            <!--END FAQ8 -->
+            <!-- FAQ9 -->
+            <div class="card">
+                <div class="card-header" role="tab" id="headingNine">
+                    <h5 class="mb-0">
+                        <a class="FAQitem fa fa-question" class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                            I have some feedback on the Hirecycle site and/ or service. Who do I contact?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="headingNine">
+                    <div class="card-block">
+                        <p>Great news - we are always keen to hear feedback! Please send an email to our CEO
+                            <a href="davesimmons@hirecylce.com">Dave</a> or alternatively you can use our <a
+                                href="#">contact form</a> </p>.
+                    </div>
+                </div>
+            </div>
+            <!--END FAQ9 -->
+            <!-- FAQ10 -->
+            <div class="card">
+                <div class="card-header" role="tab" id="headingTen">
+                    <h5 class="mb-0">
+                        <a class="FAQitem fa fa-question" class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                            I can't find an answer to my question in the FAQs. Who can I contact for help?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseTen" class="collapse" role="tabpanel" aria-labelledby="headingTen">
+                    <div class="card-block">
+                        <p>Here is a link to our <a
+                                href="#">contact form</a> where you can leave us a message. We aim to get back to you within
+                        24 hours and will do our best to help you find an answer/ solution.</p>.
+                    </div>
+                </div>
+            </div>
+            <!--END FAQ10 -->
+        </div>
+
+    </div>
+    <!-- /.container -->
+{% endblock %}

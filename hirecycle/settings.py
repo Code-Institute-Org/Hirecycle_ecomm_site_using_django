@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'user',
     'home',
     'contactus',
+    'django_gravatar',
     # 'debug_toolbar',
 ]
 

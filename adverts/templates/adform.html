@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+{% block content %}
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1>Create or edit ad</h1>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% static "index" %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Create or edit ad</li>
+        </ol>
+
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | as_bootstrap }}
+                    <button type="submit" class="btn btn-info">Save</button>
+                </form>
+            </div>
+        </div>
+        <!-- End of Content -->
+    </div>
+{% endblock %}
+
+

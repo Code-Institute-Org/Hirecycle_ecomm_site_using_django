@@ -1,4 +1,5 @@
 {% load static from staticfiles %}
+{% load gravatar %}
 <!DOCTYPE html>
 
 <head>
@@ -68,18 +69,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="{% url 'advertdetails' %}" id="navbarDropdownPortfolio"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Browse ads
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                        <a class="dropdown-item" href="#">Audio</a>
-                        <a class="dropdown-item" href="#">Video</a>
-                        <a class="dropdown-item" href="#">Photo</a>
-                        <a class="dropdown-item" href="#">Accessories</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'advertlist' %}">Browse ads</a>
                 </li>
+{#                <li class="nav-item dropdown">#}
+{#                    <a class="nav-link dropdown-toggle" href="{% url 'advertlist' %}" id="navbarDropdownPortfolio"#}
+{#                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#                        Browse ads#}
+{#                    </a>#}
+{#                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">#}
+{#                        <a class="dropdown-item" href="#">Audio</a>#}
+{#                        <a class="dropdown-item" href="#">Video</a>#}
+{#                        <a class="dropdown-item" href="#">Photo</a>#}
+{#                        <a class="dropdown-item" href="#">Accessories</a>#}
+{#                    </div>#}
+{#                </li>#}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">

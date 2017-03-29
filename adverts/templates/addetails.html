@@ -26,6 +26,7 @@
             </div>
             <div>
                 <h3>{{ advert.item }}</h3>
+                <a href="{% url 'add_to_cart' advert.id %}" )>Add To Cart</a>
                 <div class="row">
                     <div class="col-lg-9">
                         {% if advert.image %}
@@ -37,8 +38,8 @@
                         <button class="btn btn-success" onclick="location.href='{% url 'edit_ad' advert.id %}'">Edit
                         </button>
                         <p>{{ advert.created_date }} | <strong>Views</strong> {{ advert.views }}</p>
-                    <p>Rental rate: {{ advert.daily_rental_rate }}</p>
-                    <p>Insurance rate: {{ insurance_package.insurance_package_rate }}</p>
+                        <p>Rental rate: {{ advert.daily_rental_rate }}</p>
+                        <p>Insurance rate: {{ insurance_package.insurance_package_rate }}</p>
                     </div>
                 </div>
 

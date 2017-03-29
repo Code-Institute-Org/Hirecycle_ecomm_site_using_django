@@ -30,6 +30,7 @@
                         </div>
                         <div class="col-md-10 col-sm-9">
                             <h3>{{ advert.item }}</h3>
+                            <a href="{% url 'add_to_cart' advert.id %}" )>Add To Cart</a>
                             <div class="row">
                                 <div class="col-xs-9">
                                     <p>{{ advert.description|truncatewords:30 }}</p>

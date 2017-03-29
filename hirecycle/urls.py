@@ -17,7 +17,7 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from adverts import urls as ads_urls
 from user import urls as user_urls
-from contactus.views import contactus
+from contacthirecycle import urls as contacthirecycle_urls
 from home.views import index, about, FAQ
 from django.conf import settings
 from django.conf.urls.static import static
@@ -29,7 +29,7 @@ urlpatterns = [
     url(r'^index/', index, name='index'),
     url(r'^about/', about, name='about'),
     url(r'^FAQ/', FAQ, name='FAQ'),
-    url(r'^contactus/', contactus, name='ContactUs'),
+    url(r'^contactus/', include(contacthirecycle_urls)),
     url(r'^ads/', include(ads_urls)),
     url(r'^user/', include(user_urls)),
 ]

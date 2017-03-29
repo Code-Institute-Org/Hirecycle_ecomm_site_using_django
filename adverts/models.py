@@ -47,25 +47,3 @@ class InsurancePackage(models.Model):
 
     def __unicode__(self):
         return self.insurance_package
-
-        # @property
-        # def advertised_daily_rental_rate(self):
-        #     daily_rental_rate = self.daily_rental_rate
-        #     insurance_package = self.insurance_package
-        #     return (daily_rental_rate * insurance_package)
-    # daily_insurance_cover_rate = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-    # # insurance_package_choices = (
-    # #     (1.0,"I don't need insurance"),
-    # #     (1.2,"Bronze"),
-    # #     (1.4,"Silver"),
-    # #     (1.5,"Gold"),
-    # # )
-    # insurance_package = models.DecimalField(
-    #     max_digits=10,
-    #     decimal_places=2,
-    #     choices=(
-    #     (1.0, "I don't need insurance"),
-    #     (1.2, "Bronze"),
-    #     (1.4, "Silver"),
-    #     (1.5, "Gold"))
-    # )

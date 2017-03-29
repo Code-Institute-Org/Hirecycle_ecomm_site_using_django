@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'adverts',
     'user',
     'home',
-    'contactus',
+    'contacthirecycle',
     'django_gravatar',
     # 'debug_toolbar',
 ]

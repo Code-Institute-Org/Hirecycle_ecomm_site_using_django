@@ -72,27 +72,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'advertlist' %}">Browse ads</a>
                 </li>
-{#                <li class="nav-item dropdown">#}
-{#                    <a class="nav-link dropdown-toggle" href="{% url 'advertlist' %}" id="navbarDropdownPortfolio"#}
-{#                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#                        Browse ads#}
-{#                    </a>#}
-{#                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">#}
-{#                        <a class="dropdown-item" href="#">Audio</a>#}
-{#                        <a class="dropdown-item" href="#">Video</a>#}
-{#                        <a class="dropdown-item" href="#">Photo</a>#}
-{#                        <a class="dropdown-item" href="#">Accessories</a>#}
-{#                    </div>#}
-{#                </li>#}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Post an ad
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="#">Create a new ad</a>
-                        <a class="dropdown-item" href="#">Edit an existing ad</a>
-                    </div>
+                {#                <li class="nav-item dropdown">#}
+                {#                    <a class="nav-link dropdown-toggle" href="{% url 'advertlist' %}" id="navbarDropdownPortfolio"#}
+                {#                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+                {#                        Browse ads#}
+                {#                    </a>#}
+                {#                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">#}
+                {#                        <a class="dropdown-item" href="#">Audio</a>#}
+                {#                        <a class="dropdown-item" href="#">Video</a>#}
+                {#                        <a class="dropdown-item" href="#">Photo</a>#}
+                {#                        <a class="dropdown-item" href="#">Accessories</a>#}
+                {#                    </div>#}
+                {#                </li>#}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'new_ad' %}">Post ad</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Cart</a>
@@ -130,9 +123,16 @@
 {% block content %}
 {% endblock %}
 <!-- Footer -->
-<footer class="py-5 bg-inverse navbar navbar-fixed-bottom">
+<footer class="text-center">
     <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+        <p id="footericons">
+            <a class="footericon" href="https://twitter.com/CodersInstitute"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a class="footericon" href="https://www.facebook.com/Code.InstituteIRL/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a class="footericon" href="https://www.linkedin.com/company-beta/5350891/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            <a class="footericon" href="https://github.com/nakitamccool"><i class="fa fa-github" aria-hidden="true"></i></a>
+        </p>
+        <p class="m-0 text-center copyright">Copyright &copy; Hirecycle 2017</p>
+        <p class="m-0 text-center copyright">Website designed and built by Nakita McCool</p>
     </div>
     <!-- /.container -->
 </footer>

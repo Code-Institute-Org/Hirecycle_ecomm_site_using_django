@@ -17,6 +17,7 @@ class Advert(models.Model):
     pickup_location = models.CharField(max_length=200)
     original_retail_price = models.DecimalField(max_digits=10, decimal_places=2)
     daily_rental_rate = models.DecimalField(max_digits=10, decimal_places=2)
+    insurance_package = models.ForeignKey('adverts.InsurancePackage')
 
     def publish(self):
         self.created_date = timezone.now()

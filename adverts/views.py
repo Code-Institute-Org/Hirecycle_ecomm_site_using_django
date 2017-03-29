@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Advert
+from .models import Advert, InsurancePackage
 from django.utils import timezone
 from .forms import AdvertPostForm
 
@@ -20,9 +20,10 @@ def addetails(request, id):
     post is not found
     """
     advert = get_object_or_404(Advert, pk=id)
+    insurance_package = get_object_or_404(InsurancePackage, pk=id)
     advert.views += 1
     advert.save()
-    return render(request, "addetails.html", {'advert': advert})
+    return render(request, "addetails.html", {'advert': advert,'insurance_package': insurance_package})
 
 def new_ad(request):
     if request.method == "POST":

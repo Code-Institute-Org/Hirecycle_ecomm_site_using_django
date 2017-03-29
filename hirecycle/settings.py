@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
     'adverts',
-    'accounts',
+    'user',
     'home',
     'contactus',
     # 'debug_toolbar',
@@ -132,3 +132,20 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+# Email Settings
+DEFAULT_FROM_EMAIL = 'richecommerce@example.com'
+
+# The following settings are for dev/debug.
+# Not suitable for production.
+
+# To use Django's Console email backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# To run the SMTP debugger in terminal
+# python -m smtpd -n -c DebuggingServer localhost:1025
+# And use the following settings.
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = 1025
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_USE_TLS = False

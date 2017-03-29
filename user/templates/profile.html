@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1>Contact</h1>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% static "index" %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Profile</li>
+        </ol>
+
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <p>This is your profile page</p>
+            </div>
+        </div>
+        <!-- End of Content -->
+    </div>
+{% endblock %}

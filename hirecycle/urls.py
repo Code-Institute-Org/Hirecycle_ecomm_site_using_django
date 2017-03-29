@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from adverts import urls as adverts_urls
-from accounts import urls as accounts_urls
+from user import urls as user_urls
 from contactus.views import contactus
 from home.views import index, about, FAQ
 from django.conf import settings
@@ -31,7 +31,7 @@ urlpatterns = [
     url(r'^FAQ/', FAQ, name='FAQ'),
     url(r'^contactus/', contactus, name='ContactUs'),
     url(r'^ads/', include(adverts_urls)),
-    url(r'^account/', include(accounts_urls)),
+    url(r'^user/', include(user_urls)),
 ]
 
 # if settings.DEBUG:

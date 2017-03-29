@@ -1,5 +1,5 @@
 from django.contrib import messages, auth
-from accounts.forms import UserLoginForm, UserRegistrationForm
+from user.forms import UserLoginForm, UserRegistrationForm
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.template.context_processors import csrf

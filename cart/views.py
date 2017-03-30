@@ -12,7 +12,6 @@ from django.conf import settings
 # stripe.api_key = settings.STRIPE_SECRET
 
 
-
 @login_required(login_url="/login")
 def user_cart(request):
     cartItems = CartItem.objects.filter(user=request.user)

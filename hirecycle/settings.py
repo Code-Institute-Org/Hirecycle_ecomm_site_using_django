@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'contacthirecycle',
     'django_gravatar',
     'cart',
+    'payments',
     # 'debug_toolbar',
 ]
 

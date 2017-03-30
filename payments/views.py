@@ -15,11 +15,11 @@ def buy_now(request, id):
         form = MakePaymentForm(request.POST)
         if form.is_valid():
             try:
-                product = get_object_or_404(Advert, pk=id)
+                advert = get_object_or_404(Advert, pk=id)
                 customer = stripe.Charge.create(
-                    amount= int(product.price * 100),
+                    amount= int(advert.daily_rental_rate * 100),
                     currency="EUR",
-                    description=product.name,
+                    description=advert.name,
                     card=form.cleaned_data['stripe_id'],
                 )
             except stripe.error.CardError, e:
@@ -35,9 +35,9 @@ def buy_now(request, id):
 
     else:
         form = MakePaymentForm()
-        product = get_object_or_404(Advert, pk=id)
+        advert = get_object_or_404(Advert, pk=id)
 
-    args = {'form': form, 'publishable': settings.STRIPE_PUBLISHABLE, 'product': product}
+    args = {'form': form, 'publishable': settings.STRIPE_PUBLISHABLE, 'advert': advert}
     args.update(csrf(request))
 
     return render(request, 'pay.html', args)

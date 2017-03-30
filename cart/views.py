@@ -3,11 +3,11 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import CartItem
 from django.contrib.auth.decorators import login_required
 from adverts.models import Advert
-# from payments.forms import MakePaymentForm
+from payments.forms import MakePaymentForm
 from django.template.context_processors import csrf
 from django.contrib import messages
 from django.conf import settings
-# import stripe
+import stripe
 
 # stripe.api_key = settings.STRIPE_SECRET
 
@@ -17,7 +17,7 @@ def user_cart(request):
     cartItems = CartItem.objects.filter(user=request.user)
     total = 0
     for item in cartItems:
-        total += item.no_of_days * (item.product.daily_rental_rate)
+        total += item.no_of_days * (item.advert.daily_rental_rate)
         # total += item.no_of_days * (item.product.daily_rental_rate + item.insurancepackage.insurance_package_rate)
 
     if request.method == 'POST':
@@ -60,17 +60,17 @@ def user_cart(request):
 
 @login_required(login_url="/login")
 def add_to_cart(request, id):
-    product = get_object_or_404(Advert, pk=id)
+    advert = get_object_or_404(Advert, pk=id)
     # no_of_days=int(request.POST.get('no_of_days'))
-    no_of_days = 0
+    no_of_days = 1
 
     try:
-        cartItem = CartItem.objects.get(user=request.user, product=product)
+        cartItem = CartItem.objects.get(user=request.user, advert=advert)
         cartItem.no_of_days += no_of_days
     except CartItem.DoesNotExist:
         cartItem = CartItem(
             user=request.user,
-            product=product,
+            advert=advert,
             no_of_days=no_of_days
         )
 

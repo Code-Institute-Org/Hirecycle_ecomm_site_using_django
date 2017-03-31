@@ -17,7 +17,8 @@ class Advert(models.Model):
     pickup_location = models.CharField(max_length=200)
     original_retail_price = models.DecimalField(max_digits=10, decimal_places=2)
     daily_rental_rate = models.DecimalField(max_digits=10, decimal_places=2)
-    insurance_package = models.ForeignKey('adverts.InsurancePackage')
+    insurance_package = models.CharField(max_length=200)
+    # insurance_package = models.ForeignKey('adverts.InsurancePackage')
 
     @property
     def advertised_rental_rate(self):
@@ -30,25 +31,25 @@ class Advert(models.Model):
     def __unicode__(self):
         return self.item
 
-class InsurancePackage(models.Model):
-
-    NoInsurance = "I don't need insurance"
-    Bronze = "Bronze"
-    Silver = "Silver"
-    Gold = "Gold"
-
-    insurance_package_choices=(
-        (NoInsurance, "I don't need insurance"),
-        (Bronze, "Bronze"),
-        (Silver, "Silver"),
-        (Gold, "Gold")
-    )
-
-    insurance_package = models.CharField(max_length=100, choices=insurance_package_choices)
-    insurance_package_rate = models.DecimalField(max_digits=4, decimal_places=2, default=1.11)
-    def publish(self):
-        self.save()
-
-    def __unicode__(self):
-        rate = int((self.insurance_package_rate - 1) * 100)
-        return "{0} ({1}%)".format(self.insurance_package, rate)
+# class InsurancePackage(models.Model):
+#
+#     NoInsurance = "I don't need insurance"
+#     Bronze = "Bronze"
+#     Silver = "Silver"
+#     Gold = "Gold"
+#
+#     insurance_package_choices=(
+#         (NoInsurance, "I don't need insurance"),
+#         (Bronze, "Bronze"),
+#         (Silver, "Silver"),
+#         (Gold, "Gold")
+#     )
+#
+#     insurance_package = models.CharField(max_length=100, choices=insurance_package_choices)
+#     insurance_package_rate = models.DecimalField(max_digits=4, decimal_places=2, default=1.11)
+#     def publish(self):
+#         self.save()
+#
+#     def __unicode__(self):
+#         rate = int((self.insurance_package_rate - 1) * 100)
+#         return "{0} ({1}%)".format(self.insurance_package, rate)

@@ -51,7 +51,8 @@ def user_cart(request):
     cartItems = CartItem.objects.filter(user=request.user)
     total = 0
     for item in cartItems:
-        total += round((item.no_of_days * (item.advert.advertised_rental_rate)),2)
+        total += item.no_of_days * item.advert.daily_rental_rate
+        # total += round((item.no_of_days * (item.advert.advertised_rental_rate)),2)
 
     if request.method == 'POST':
         form = MakePaymentForm(request.POST)

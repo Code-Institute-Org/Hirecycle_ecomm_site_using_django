@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Advert, InsurancePackage
 from django.utils import timezone
 from .forms import AdvertPostForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -25,6 +26,7 @@ def addetails(request, id):
     advert.save()
     return render(request, "addetails.html", {'advert': advert,'insurance_package': insurance_package})
 
+@login_required(login_url="/user/login?next=ads/new")
 def new_ad(request):
     if request.method == "POST":
         form = AdvertPostForm(request.POST, request.FILES)

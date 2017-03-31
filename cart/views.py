@@ -1,14 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 
 from .models import CartItem
-from django.contrib.auth.decorators import login_required
-from adverts.models import Advert
-from payments.forms import MakePaymentForm
-from django.template.context_processors import csrf
-from django.contrib import messages
-from django.conf import settings
-import stripe
-
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from payments.forms import MakePaymentForm
@@ -21,7 +13,7 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET
 
 
-@login_required(login_url="/login?next=payments/buy_now")
+@login_required(login_url="/user/login?next=payments/buy_now")
 def buy_now(request, id):
     if request.method == 'POST':
         form = MakePaymentForm(request.POST)
@@ -54,7 +46,7 @@ def buy_now(request, id):
 
     return render(request, 'pay.html', args)
 
-@login_required(login_url="/login")
+@login_required(login_url="/user/login")
 def user_cart(request):
     cartItems = CartItem.objects.filter(user=request.user)
     total = 0
@@ -100,7 +92,7 @@ def user_cart(request):
 
 
 
-@login_required(login_url="/login")
+@login_required(login_url="/user/login")
 def add_to_cart(request, id):
     advert = get_object_or_404(Advert, pk=id)
     # no_of_days=int(request.POST.get('no_of_days'))

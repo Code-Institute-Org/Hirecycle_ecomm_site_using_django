@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-lg-9">
                         {% if advert.image %}
-                            <img src="{{ MEDIA_URL }}{{ advert.image }}">
+                            <img src="#">
                         {% endif %}
                         <p>{{ advert.description }}</p>
                         <button class="btn btn-success" onclick="location.href='{% url 'advertlist' %}'">Back To Blog

@@ -21,20 +21,21 @@ from contacthirecycle import urls as contacthirecycle_urls
 from payments import urls as payments_urls
 from cart import urls as cart_urls
 from home.views import index, about, FAQ
-from django.conf import settings
-from django.conf.urls.static import static
-from django.views.static import serve
+from django.views import static
+from settings import MEDIA_ROOT
+# from django.conf import settings
+# from django.views.static import serve
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
-    url(r'^index/', index, name='index'),
     url(r'^about/', about, name='about'),
     url(r'^FAQ/', FAQ, name='FAQ'),
     url(r'^contactus/', include(contacthirecycle_urls)),
     url(r'^payments/', include(payments_urls)),
     url(r'^cart/', include(cart_urls)),
     url(r'^ads/', include(ads_urls)),
+    url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
     url(r'^user/', include(user_urls)),
 ]
 

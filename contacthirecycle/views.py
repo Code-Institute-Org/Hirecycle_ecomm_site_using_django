@@ -9,7 +9,7 @@ def contactus(request):
             ContactUs = form.save(commit=False)
             ContactUs.name = request.user
             ContactUs.save()
-            return redirect(ContactUs, contacthirecycle.pk)
+            return redirect(ContactUs, contactus.pk)
 
     else:
         form = ContactUsForm()

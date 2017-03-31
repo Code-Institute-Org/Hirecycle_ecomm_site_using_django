@@ -4,7 +4,8 @@ from django.db import models
 
 class ContactUs(models.Model):
 
-    name = models.ForeignKey('auth.User')
+    name = models.CharField(max_length=200)
+    email_address = models.EmailField()
     subject = models.CharField(max_length=200)
     message = models.CharField(max_length=2000)
     created_date = models.DateTimeField(auto_now_add=True)

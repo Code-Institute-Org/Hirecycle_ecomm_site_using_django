@@ -9,17 +9,18 @@ import stripe
 
 stripe.api_key = settings.STRIPE_SECRET
 
-@login_required(login_url="/login?next=payments/buy_now")
+
+@login_required(login_url="login?next=payments/buy_now")
 def buy_now(request, id):
     if request.method == 'POST':
         form = MakePaymentForm(request.POST)
         if form.is_valid():
             try:
-                advert = get_object_or_404(Advert, pk=id)
+                product = get_object_or_404(Advert, pk=id)
                 customer = stripe.Charge.create(
-                    amount= int(advert.daily_rental_rate * 100),
+                    amount= int(product.price * 100),
                     currency="EUR",
-                    description=advert.name,
+                    description=product.name,
                     card=form.cleaned_data['stripe_id'],
                 )
             except stripe.error.CardError, e:
@@ -27,7 +28,7 @@ def buy_now(request, id):
 
             if customer.paid:
                 messages.success(request, "You have successfully paid")
-                return redirect(reverse('advertlist'))
+                return redirect(reverse('products'))
             else:
                 messages.error(request, "Unable to take payment")
         else:

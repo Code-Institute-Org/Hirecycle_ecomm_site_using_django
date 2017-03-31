@@ -7,5 +7,6 @@ class ContactUsForm(forms.ModelForm):
         model = ContactUs
         fields = (
             'name',
+            'email_address',
             'subject',
             'message',)

@@ -17,23 +17,18 @@
 
         <!-- Content Row -->
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-9">
                 {% for advert in adverts %}
                     <div class="row">
                         <hr>
-                        <div class="col-md-2 col-sm-3 text-center">
-                            <a class="story-img" href="#">
-                                <img src="{% gravatar_url advert.advertiser.email %}"
-                                     style="width:100px; height: 100px; background-color: #12ABB2; color: #ffffff;"
-                                     class="img-circle">
-                            </a>
-                        </div>
-                        <div class="col-md-10 col-sm-9">
+                        <div class="col-lg-12">
+                            {% if advert.image %}
+                            <img src="{{ MEDIA_URL }}{{ advert.image }}">
+                            {% endif %}
                             <h3>{{ advert.item }}</h3>
                             <a href="{% url 'add_to_cart' advert.id %}" )>Add To Cart</a>
                             <div class="row">
                                 <div class="col-xs-9">
-                                    <p>{{ advert.description|truncatewords:30 }}</p>
                                     <p>
                                         <button class="btn btn-default"
                                                 onclick="location.href='{% url 'addetails' advert.id %}'">Read More

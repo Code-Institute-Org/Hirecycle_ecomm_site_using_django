@@ -39,7 +39,7 @@ def new_ad(request):
         form = AdvertPostForm()
     return render(request, 'adform.html', {'form': form})
 
-
+@login_required(login_url="/user/login?next=ads/edit/")
 def edit_ad(request, id):
    advert = get_object_or_404(Advert, pk=id)
    if request.method == "POST":

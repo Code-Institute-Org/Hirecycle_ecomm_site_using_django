@@ -27,7 +27,7 @@
         <tbody>
             {% for item in items %}
                 <tr>
-                    <td><img height="100" width="100" src="#"></td>
+                    <td><img height="100" width="100" src="{{ MEDIA_URL }}{{ item.advert.image }}"></td>
                     <td>{{ item.advert.item }}</td>
                     <td>{{ item.advert.description }}</td>
                     <td>{{ item.advert.daily_rental_rate }}</td>

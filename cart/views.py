@@ -13,8 +13,7 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET
 
 
-@login_required(login_url="/user/login?next=p"
-                          "ayments/buy_now")
+@login_required(login_url="/user/login?next=payments/buy_now")
 def buy_now(request, id):
     if request.method == 'POST':
         form = MakePaymentForm(request.POST)
@@ -52,8 +51,7 @@ def user_cart(request):
     cartItems = CartItem.objects.filter(user=request.user)
     total = 0
     for item in cartItems:
-        total += item.no_of_days * (item.advert.daily_rental_rate)
-        # total += item.no_of_days * (item.product.daily_rental_rate + item.insurancepackage.insurance_package_rate)
+        total += round((item.no_of_days * (item.advert.advertised_rental_rate)),2)
 
     if request.method == 'POST':
         form = MakePaymentForm(request.POST)

@@ -33,6 +33,7 @@
                         <p>{{ advert.created_date }} | <strong>Views</strong> {{ advert.views }}</p>
                         <p>Rental rate: {{ advert.daily_rental_rate }}</p>
                         <p>Insurance rate: {{ insurance_package.insurance_package_rate }}</p>
+                        <p>Advertised rate: {{ advert.advertised_rental_rate | floatformat:2 }}</p>
                     </div>
                 </div>
                 <div class="col-lg-12">

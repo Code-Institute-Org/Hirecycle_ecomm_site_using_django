@@ -19,6 +19,10 @@ class Advert(models.Model):
     daily_rental_rate = models.DecimalField(max_digits=10, decimal_places=2)
     insurance_package = models.ForeignKey('adverts.InsurancePackage')
 
+    @property
+    def advertised_rental_rate(self):
+        return round((self.daily_rental_rate * self.insurance_package.insurance_package_rate),2)
+
     def publish(self):
         self.created_date = timezone.now()
         self.save()
@@ -40,10 +44,11 @@ class InsurancePackage(models.Model):
         (Gold, "Gold")
     )
 
-    insurance_package = models.CharField(max_length=100, choices=insurance_package_choices, default=NoInsurance)
-    insurance_package_rate = models.DecimalField(max_digits=4, decimal_places=2, default=1)
+    insurance_package = models.CharField(max_length=100, choices=insurance_package_choices)
+    insurance_package_rate = models.DecimalField(max_digits=4, decimal_places=2, default=1.11)
     def publish(self):
         self.save()
 
     def __unicode__(self):
-        return self.insurance_package
+        rate = int((self.insurance_package_rate - 1) * 100)
+        return "{0} ({1}%)".format(self.insurance_package, rate)

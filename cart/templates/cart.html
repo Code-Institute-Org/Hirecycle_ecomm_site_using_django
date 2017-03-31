@@ -30,7 +30,7 @@
                     <td><img height="100" width="100" src="{{ MEDIA_URL }}{{ item.advert.image }}"></td>
                     <td>{{ item.advert.item }}</td>
                     <td>{{ item.advert.description }}</td>
-                    <td>{{ item.advert.daily_rental_rate }}</td>
+                    <td>{{ item.advert.advertised_rental_rate }}</td>
                     <td>{{ item.no_of_days }}</td>
                     <td><a href="{% url 'remove_from_cart' item.id %}">Remove</a></td>
                 </tr>

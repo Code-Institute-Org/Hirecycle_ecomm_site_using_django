@@ -4,10 +4,14 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+from adverts.models import Advert
 
 @login_required(login_url='/login?next=profile')
 def profile(request):
-    return render(request, 'profile.html')
+    adverts = Advert.objects.filter(available_from__lte=timezone.now()
+                                    ).order_by('-available_from')
+    return render(request, "profile.html", {'adverts': adverts})
 
 
 def login(request):

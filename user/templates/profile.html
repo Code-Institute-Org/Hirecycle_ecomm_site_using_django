@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
+{% load gravatar %}
 {% block content %}
     <div class="container">
 
@@ -16,8 +17,21 @@
         <!-- Content Row -->
         <div class="row">
             <div class="col-lg-12">
-                <p>This is your profile page</p>
+            <img src="{% gravatar_url user.email 150 %}" style="width:100px; height: 100px; background-color: #12ABB2; color: #ffffff;" class="img-circle">
+            <p>{{ user.username }}</p>
+                <p>{{ user.email }}</p>
+                <p><a href="{% url 'cart' %}">My cart</a></p>
+                <p><a href="{% url 'password_reset' %}">Reset my password</a></p>
             </div>
+
+            {% for advert in adverts %}
+                {% if user.id == advert.advertiser_id %}
+                    <div>{{ advert.item }}</div>
+                    <br>
+                    {% else %}
+                    <p>You have no adverts</p>
+                {% endif %}
+            {% endfor %}
         </div>
         <!-- End of Content -->
     </div>

@@ -13,7 +13,8 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET
 
 
-@login_required(login_url="/user/login?next=payments/buy_now")
+@login_required(login_url="/user/login?next=p"
+                          "ayments/buy_now")
 def buy_now(request, id):
     if request.method == 'POST':
         form = MakePaymentForm(request.POST)

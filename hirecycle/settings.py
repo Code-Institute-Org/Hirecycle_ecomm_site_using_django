@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-import env
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -29,9 +28,9 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hirecycle-ecomm-site.herokuapp.com', '127.0.0.1']
 
-INTERNAL_IPS=['127.0.0.1']
+# INTERNAL_IPS=['127.0.0.1']
 
 # Application definition
 
@@ -51,11 +50,9 @@ INSTALLED_APPS = [
     'cart',
     'payments',
     'storages',
-    # 'debug_toolbar',
 ]
 
 MIDDLEWARE = [
-    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

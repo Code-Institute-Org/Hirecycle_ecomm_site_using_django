@@ -14,5 +14,4 @@ class AdvertPostForm(forms.ModelForm):
             'image',
             'original_retail_price',
             'daily_rental_rate',
-            'insurance_package',
             'pickup_location')

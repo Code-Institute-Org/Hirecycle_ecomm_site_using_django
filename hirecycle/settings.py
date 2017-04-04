@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'cart',
     'payments',
     'storages',
+    # 'disqus',
 ]
 
 MIDDLEWARE = [
@@ -132,7 +133,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+# DISQUS_WEBSITE_SHORTNAME = 'nakitasblog'
 #S3 STORAGE
 AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',

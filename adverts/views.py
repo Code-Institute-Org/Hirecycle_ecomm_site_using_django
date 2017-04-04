@@ -7,8 +7,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def advertlist(request):
-        adverts = Advert.objects.filter(available_from__lte=timezone.now()
-                                    ).order_by('-available_from')
+        adverts = Advert.objects.all().order_by('-created_date')
         return render(request, "advertlist.html", {'adverts': adverts})
 
 

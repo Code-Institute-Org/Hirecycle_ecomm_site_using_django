@@ -3,63 +3,88 @@
 {% load bootstrap_tags %}
 
 {% block head_js %}
-  <script src="https://js.stripe.com/v2/" type="text/javascript"></script>
-  <script type="text/javascript">
-      //<![CDATA[
-      Stripe.publishableKey = '{{ publishable }}';
-      //]]>
-  </script>
-  <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+    <script src="https://js.stripe.com/v2/" type="text/javascript"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        Stripe.publishableKey = '{{ publishable }}';
+        //]]>
+    </script>
+    <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
-
 {% block content %}
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in items %}
-                <tr>
-                    <td><img height="100" width="100" src="{{ MEDIA_URL }}{{ item.advert.image }}"></td>
-                    <td>{{ item.advert.item }}</td>
-                    <td>{{ item.advert.description }}</td>
-{#                    <td>{{ item.advert.advertised_rental_rate }}</td>#}
-                    <td>{{ item.no_of_days }}</td>
-                    <td><a href="{% url 'remove_from_cart' item.id %}">Remove</a></td>
-                </tr>
-            {% endfor %}
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-{#                    <td>{{ total }}</td>#}
-{#                    <td></td>#}
-                    <td></td>
-                </tr>
-        </tbody>
-    </table>
+    <div class="container">
 
-    <hr>
+        <!-- Page Heading/Breadcrumbs -->
+        <h1>Contact</h1>
 
-    <form role="form" method="post" id="payment-form" action="{% url 'cart' %}">
-    <div id="credit-card-errors" style="display:none">
-      <div class="alert-message block-message error" id="stripe-error-message"></div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% static "index" %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Login</li>
+        </ol>
+
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th class="tabledata">Rental period</th>
+                        <th class="tabledata">Rental rate</th>
+                        <th class="tabledata">Remove item</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td><img height="100" width="100" src="{{ MEDIA_URL }}{{ item.advert.image }}"></td>
+                            <td>{{ item.advert.item }}</td>
+                            <td>{{ item.advert.description }}</td>
+                            {% if item.no_of_days == 1 %}
+                                <td class="tabledata">{{ item.no_of_days }} day </td>
+                            {% else %}
+                                <td class="tabledata">{{ item.no_of_days }} days </td>
+                            {% endif %}
+                            <td class="tabledata">&euro;{{ item.advert.daily_rental_rate }}</td>
+                            {#                    <td>{{ item.advert.advertised_rental_rate }}</td>#}
+                            <td class="tabledata"><a class="fa fa-trash-o" aria-hidden="true" href="{% url 'remove_from_cart' item.id %}"></a></td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td><b>Total due:</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><b>&euro;{{ total }}</b></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <hr>
+
+                <form role="form" method="post" id="payment-form" action="{% url 'cart' %}">
+                    <div id="credit-card-errors" style="display:none">
+                        <div class="alert-message block-message error" id="stripe-error-message"></div>
+                    </div>
+
+                    <legend>Pay Now!</legend>
+
+                    {% csrf_token %}
+                    {{ form | as_bootstrap }}
+                    <div class="form-group">
+                        <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit"
+                               value="Submit Payment">
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+        <!-- End of Content -->
     </div>
-
-    <legend>Pay Now!</legend>
-
-    {% csrf_token %}
-    {{ form | as_bootstrap }}
-    <div class="form-group">
-      <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-    </div>
-    </form>
-
 {% endblock %}

@@ -16,22 +16,29 @@
 
         <!-- Content Row -->
         <div class="row">
-            <div class="col-lg-12">
-            <img src="{% gravatar_url user.email 150 %}" style="width:100px; height: 100px; background-color: #12ABB2; color: #ffffff;" class="img-circle">
-            <p>{{ user.username }}</p>
-                <p>{{ user.email }}</p>
-                <p><a href="{% url 'cart' %}">My cart</a></p>
-                <p><a href="{% url 'password_reset' %}">Reset my password</a></p>
+            <div class="col-md-4">
+                <a class="story-img col-md-4" href="#">
+                    <img src="{% gravatar_url user.email %}"
+                         style="width:200px; height: 200px; background-color: #12ABB2; color: #ffffff;"
+                         class="img-circle">
+                </a>
             </div>
+            <div class="col-md-8 borderleft">
+                <p class="browseads advertiserdetails"><strong>Username: </strong>{{ user.username}}</p>
+                <p class="browseads advertiserdetails"><strong>Email address: </strong>{{ user.email}}</p>
+                <p class="browseads"><a href="{% url 'cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Go to my cart</a></p>
+                <p class="browseads"><a href="{% url 'password_reset' %}"><i class="fa fa-lock" aria-hidden="true"></i> Reset my password</a></p>
+            <hr>
 
             {% for advert in adverts %}
                 {% if user.id == advert.advertiser_id %}
-                    <div>{{ advert.item }}</div>
-                    <br>
-                    {% else %}
-                    <p>You have no adverts</p>
+                    <p><strong>My adverts:</strong></p>
+                    <p>{{ advert.item }}</p>
+                    <button class="btn btn-success" onclick="location.href='{% url 'edit_ad' advert.id %}'">Edit ad</button>
+                    <hr>
                 {% endif %}
             {% endfor %}
+            </div>
         </div>
         <!-- End of Content -->
     </div>

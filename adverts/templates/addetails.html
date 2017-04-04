@@ -12,39 +12,56 @@
             <li class="breadcrumb-item">
                 <a href="{% static "index" %}">Home</a>
             </li>
-            <li class="breadcrumb-item active">Browse ads</li>
+            <li class="breadcrumb-item">
+                <a href="{% static "addetails" %}">Browse ads</li>
         </ol>
 
         <!-- Content Row -->
         <div class="row">
-            <div>
-                <h3>{{ advert.item }}</h3>
-                <a href="{% url 'add_to_cart' advert.id %}" )>Add To Cart</a>
-                <div class="row">
-                    <div class="col-lg-9">
-                        {% if advert.image %}
-                            <img src="{{ MEDIA_URL }}{{ advert.image }}">
-                        {% endif %}
-                        <p>{{ advert.description }}</p>
-                        <button class="btn btn-success" onclick="location.href='{% url 'advertlist' %}'">Back To Blog
-                        </button>
-                        <button class="btn btn-success" onclick="location.href='{% url 'edit_ad' advert.id %}'">Edit
-                        </button>
-                        <p>{{ advert.created_date }} | <strong>Views</strong> {{ advert.views }}</p>
-                        <p>Rental rate: {{ advert.daily_rental_rate }}</p>
-{#                        <p>Insurance rate: {{ insurance_package.insurance_package_rate }}</p>#}
-{#                        <p>Advertised rate: {{ advert.advertised_rental_rate | floatformat:2 }}</p>#}
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <a class="story-img col-lg-3" href="#">
-                        <img src="{% gravatar_url advert.advertiser.email %}"
-                             style="width:100px; height: 100px; background-color: #12ABB2; color: #ffffff;"
-                             class="img-circle">
-                    </a>
-                </div>
+            <div class="col-md-4">
+                <a class="story-img col-md-4" href="#">
+                    <img src="{% gravatar_url advert.advertiser.email %}"
+                         style="width:150px; height: 150px; background-color: #12ABB2; color: #ffffff;"
+                         class="img-circle">
+                </a>
+                <p class="browseads advertiserdetails"><strong>Advertiser: </strong>{{ advert.advertiser.first_name }} {{ advert.advertiser.last_name }}</p>
+                <div class="browseads advertiserdetails"><strong>Advertiser rating: </strong></div><span class="rating"><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span></span>
+                <hr>
             </div>
+            <div class="col-md-8 borderleft">
+                <h3>{{ advert.item }}</h3>
+                {% if advert.image %}
+                    <img class="imageplaceholder" src="{{ MEDIA_URL }}{{ advert.image }}"
+                         style="width:300px; height: 266px; background-color: #12ABB2; color: #ffffff;">
+                {% else %}
+                    <div class="imageplaceholder">No images available</div>
+                {% endif %}
+                <p><strong>Description: </strong>{{ advert.description }}</p>
+                <p class="browseads"><strong>Rental rate per
+                    day: </strong> &euro; {{ advert.daily_rental_rate }}</p>
+                <p class="browseads"><strong>Pick up location: </strong>{{ advert.pickup_location }}</p>
+                <p class="browseads"><strong>Available from: </strong> Tue, April 4 2017 </p>
+                <p class="browseads"><strong>Item rating: </strong></p><span class="rating"><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span></span>
+                <p class="browseads"><strong>Views: </strong> {{ advert.views }}</p>
+                <hr>
+                <p>
+                    <button class="btn btn-success" onclick="location.href='{% url 'advertlist' %}'">
+                        Back to all ads
+                    </button>
+                    <button class="btn btn-success" onclick="location.href='{% url 'add_to_cart' advert.id %}'">
+                        Add to cart
+                    </button>
+                </p>
+            </div>
+{#            <div class="row">#}
+{#                <div class="col-md-12">#}
+{#                    {% load disqus_tags %}#}
+{#                    {% set_disqus_title advert.item %}#}
+{#                    {% disqus_show_comments %}#}
+{#                </div>#}
+{#            </div>#}
         </div>
-        <!-- End of Content -->
+    </div>
+    <!-- End of Content -->
     </div>
 {% endblock %}

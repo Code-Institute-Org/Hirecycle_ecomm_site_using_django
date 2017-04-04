@@ -9,8 +9,7 @@ from adverts.models import Advert
 
 @login_required(login_url='/login?next=profile')
 def profile(request):
-    adverts = Advert.objects.filter(available_from__lte=timezone.now()
-                                    ).order_by('-available_from')
+    adverts = Advert.objects.all().order_by('-created_date')
     return render(request, "profile.html", {'adverts': adverts})
 
 

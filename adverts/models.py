@@ -10,7 +10,7 @@ class Advert(models.Model):
     item = models.CharField(max_length=200)
     description = models.TextField()
     condition = models.CharField(max_length=200)
-    available_from = models.DateTimeField(blank=True, null=True)
+    # available_from = models.DateTimeField(blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     views = models.IntegerField(default=0)
     image = models.ImageField(upload_to="images", blank=True, null=True)

@@ -1,4 +1,30 @@
 /*Ensures fixed header doesn't overlap with content on page*/
+.img-circle{
+    border-radius: 50%;
+    border: 3px solid #dff0d8;
+    margin: 10%
+}
+
+.borderleft{
+    border-left: 3px solid #dff0d8;
+}
+advertiserdetails{
+    text-align: center;
+}
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
 body {
     padding-top: 66px;
 }
@@ -12,6 +38,14 @@ footer{
     margin-right: 15px;
 }
 
+div.row.adlistitem{
+    margin-bottom: 20px;
+}
+
+.browseads{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
 .carouselpic{
     background-size: cover;
     background-position: center;

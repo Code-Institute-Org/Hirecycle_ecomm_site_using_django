@@ -3,12 +3,11 @@ from django.contrib.auth.decorators import login_required
 from payments.forms import MakePaymentForm
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.template.context_processors import csrf
-from django.conf import settings
 from adverts.models import Advert
+from django.conf import settings
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET
-
 
 @login_required(login_url="/user/login?next=payments/buy_now")
 def buy_now(request, id):
@@ -16,11 +15,11 @@ def buy_now(request, id):
         form = MakePaymentForm(request.POST)
         if form.is_valid():
             try:
-                product = get_object_or_404(Advert, pk=id)
+                advert = get_object_or_404(Advert, pk=id)
                 customer = stripe.Charge.create(
-                    amount= int(product.price * 100),
+                    amount= int(advert.daily_rental_rate * 100),
                     currency="EUR",
-                    description=product.name,
+                    description=advert.item,
                     card=form.cleaned_data['stripe_id'],
                 )
             except stripe.error.CardError, e:
@@ -28,7 +27,7 @@ def buy_now(request, id):
 
             if customer.paid:
                 messages.success(request, "You have successfully paid")
-                return redirect(reverse('products'))
+                return redirect(reverse('advertlist'))
             else:
                 messages.error(request, "Unable to take payment")
         else:

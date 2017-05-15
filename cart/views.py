@@ -19,11 +19,11 @@ def buy_now(request, id):
         form = MakePaymentForm(request.POST)
         if form.is_valid():
             try:
-                product = get_object_or_404(Advert, pk=id)
+                advert = get_object_or_404(Advert, pk=id)
                 customer = stripe.Charge.create(
-                    amount= int(product.price * 100),
+                    amount= int(advert.price * 100),
                     currency="EUR",
-                    description=product.name,
+                    description=advert.name,
                     card=form.cleaned_data['stripe_id'],
                 )
             except stripe.error.CardError, e:
@@ -31,7 +31,7 @@ def buy_now(request, id):
 
             if customer.paid:
                 messages.success(request, "You have successfully paid")
-                return redirect(reverse('products'))
+                return redirect(reverse('advertlist'))
             else:
                 messages.error(request, "Unable to take payment")
         else:

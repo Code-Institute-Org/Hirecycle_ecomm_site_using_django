@@ -23,8 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
-STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE_KEY')
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -89,16 +90,16 @@ WSGI_APPLICATION = 'hirecycle.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 # # # Run local db
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 #END Run local db
 
 # # # # # #Connect to heroku postgres
-# DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 # # # # # #END Connect to heroku postgres
 
 # Password validation
@@ -163,7 +164,7 @@ MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 # Email Settings
-DEFAULT_FROM_EMAIL = 'richecommerce@example.com'
+DEFAULT_FROM_EMAIL = 'user@example.com'
 
 # The following settings are for dev/debug.
 # Not suitable for production.

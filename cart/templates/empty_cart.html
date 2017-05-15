@@ -1,6 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>You have no items in your cart.</div>
-    <div><a href="{% url 'advertlist' %}">Go shop</a></div>
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1>Contact</h1>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% static "index" %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Cart</li>
+        </ol>
+
+        <!-- Content Row -->
+        <div>You have no items in your cart.</div>
+        <div><a href="{% url 'advertlist' %}">Go shop</a></div>
+        <!-- End of Content -->
+    </div>
 {% endblock %}

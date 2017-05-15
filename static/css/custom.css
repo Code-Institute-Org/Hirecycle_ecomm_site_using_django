@@ -109,9 +109,19 @@ p.m-0.text-center.copyright{
 
 .footericon{
     margin: 0px 4px;
-    color: #002B00;;
+    color: #002B00;
 }
 
 #footericons{
     margin: 2px 0px;
+}
+
+a{
+    color: rgb(61,170,0);
+    text-decoration: none;
+}
+
+a:hover, a:active, a:visited{
+    color: #002B00;
+    text-decoration: none;
 }

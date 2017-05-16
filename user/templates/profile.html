@@ -16,14 +16,14 @@
 
         <!-- Content Row -->
         <div class="row">
-            <div class="col-md-4">
-                <a class="story-img col-md-4" href="#">
+            <div class="col-lg-3 col-md-4 col-sm-12">
+                <a class="story-img" href="#">
                     <img src="{% gravatar_url user.email %}"
                          style="width:200px; height: 200px; background-color: #12ABB2; color: #ffffff;"
                          class="img-circle">
                 </a>
             </div>
-            <div class="col-md-8 borderleft">
+            <div class="col-lg-9 col-md-8 col-sm-12 borderleft">
                 <p class="browseads advertiserdetails"><strong>Username: </strong>{{ user.username}}</p>
                 <p class="browseads advertiserdetails"><strong>Email address: </strong>{{ user.email}}</p>
                 <p class="browseads"><a href="{% url 'cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Go to my cart</a></p>

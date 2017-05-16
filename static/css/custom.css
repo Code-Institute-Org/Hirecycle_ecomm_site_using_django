@@ -110,7 +110,7 @@ a{
     text-decoration: none;
 }
 
-a:hover, a:active, a:visited{
+a:hover, a:active{
     color: #002B00;
     text-decoration: none;
 }

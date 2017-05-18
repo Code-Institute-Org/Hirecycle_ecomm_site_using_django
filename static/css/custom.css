@@ -142,3 +142,11 @@ div.card-footer{
 div.card-header{
     background-color: transparent;
 }
+
+td, th{
+    text-align: center;
+}
+
+button.btn.btn-success.adjust {
+    padding: 3.5px;
+}

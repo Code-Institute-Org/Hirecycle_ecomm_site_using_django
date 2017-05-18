@@ -111,6 +111,16 @@ def add_to_cart(request, id):
     cartItem.save()
     return redirect(reverse('cart'))
 
+def adjust_cart(request, id):
+    no_of_days = request.POST['no_of_days']
+    cartItem = CartItem.objects.get(id=id)
+    if int(no_of_days) > 0:
+        cartItem.no_of_days = no_of_days
+        cartItem.save()
+    else:
+        cartItem.delete()
+    return redirect(reverse('cart'))
+
 
 def remove_from_cart(request, id):
     CartItem.objects.get(id=id).delete()

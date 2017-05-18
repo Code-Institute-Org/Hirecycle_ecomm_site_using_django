@@ -21,14 +21,14 @@
                 {% for advert in adverts %}
                     <div class="row adlistitem">
                         <hr>
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-md-5 col-sm-6">
                             {% if advert.image %}
                                 <img class="imageplaceholder" src="{{ MEDIA_URL }}{{ advert.image }}" style="width:300px; height: 266px; background-color: #12ABB2; color: #ffffff;">
                             {% else %}
                                 <div class="imageplaceholder">No images available</div>
                             {% endif %}
                         </div>
-                        <div class="col-lg-8 col-sm-6">
+                        <div class="col-md-7 col-sm-6">
                             <h3>{{ advert.item }}</h3>
                             <div>
                                 <p class="browseads"><strong>Rental rate per day: </strong> &euro; {{ advert.daily_rental_rate }}</p>

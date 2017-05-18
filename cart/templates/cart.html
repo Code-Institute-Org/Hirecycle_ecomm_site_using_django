@@ -15,7 +15,7 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1>Cart</h1>
+        <h1>Checkout</h1>
 
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
@@ -32,10 +32,10 @@
                     <tr>
                         <th>Image</th>
                         <th>Name</th>
-                        <th>Description</th>
                         <th class="tabledata">Rental period</th>
+                        <th class="tabledata">Adjust rental period</th>
                         <th class="tabledata">Rental rate</th>
-                        <th class="tabledata">Remove item</th>
+                        <th class="tabledata">Remove from cart</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -43,14 +43,19 @@
                         <tr>
                             <td><img height="100" width="100" src="{{ MEDIA_URL }}{{ item.advert.image }}"></td>
                             <td>{{ item.advert.item }}</td>
-                            <td>{{ item.advert.description }}</td>
                             {% if item.no_of_days == 1 %}
                                 <td class="tabledata">{{ item.no_of_days }} day </td>
                             {% else %}
                                 <td class="tabledata">{{ item.no_of_days }} days </td>
                             {% endif %}
+                            <td>
+                                <form method="post" action="{% url 'adjust_cart' item.id %}">
+                                    {% csrf_token %}
+                                    <input name='no_of_days' type="number" min="0" max="999" required="required">
+                                    <button class="btn btn-success adjust" type="submit">Adjust</button>
+                                </form>
+                            </td>
                             <td class="tabledata">&euro;{{ item.advert.daily_rental_rate }}</td>
-                            {#                    <td>{{ item.advert.advertised_rental_rate }}</td>#}
                             <td class="tabledata"><a class="fa fa-trash-o" aria-hidden="true" href="{% url 'remove_from_cart' item.id %}"></a></td>
                         </tr>
                     {% endfor %}

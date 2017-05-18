@@ -1,6 +1,7 @@
-{% extends "base.html" %}
-{% load bootstrap_tags %}
+{% extends 'base.html' %}
 {% load static from staticfiles %}
+{% load bootstrap_tags %}
+
 {% block head_js %}
     <script src="https://js.stripe.com/v2/" type="text/javascript"></script>
     <script type="text/javascript">
@@ -11,45 +12,62 @@
     <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
 
-<!-- Page Heading/Breadcrumbs -->
-<h1>Cart</h1>
+{% block content %}
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="container">
+        <h1>Checkout</h1>
 
-<ol class="breadcrumb">
-    <li class="breadcrumb-item">
-        <a href="{% url 'index' %}">Home</a>
-    </li>
-    <li class="breadcrumb-item active">Buy Now!</li>
-</ol>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Rent it now!</li>
+        </ol>
 
-<!-- Content Row -->
-<div class="row">
-    <div class="col-lg-12">
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <form role="form" method="post" id="payment-form" action="{% url 'buy_now_stripe' advert.id %}">
+                    <div id="credit-card-errors" style="display:none">
+                        <div class="alert-message block-message error" id="stripe-error-message"></div>
+                    </div>
+                    <div class="row adlistitem">
+                        <hr>
+                        <div class="col-md-4 col-sm-6">
+                            {% if advert.image %}
+                                <img class="imageplaceholder" src="{{ MEDIA_URL }}{{ advert.image }}"
+                                     style="width:300px; height: 266px; background-color: #12ABB2; color: #ffffff;">
+                            {% else %}
+                                <div class="imageplaceholder">No images available</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-8 col-sm-6">
+                            <h3>{{ advert.item }}</h3>
+                            <div>
+                                <p class="browseads"><strong>Item description: </strong>{{ advert.description }}</p>
+                                <p class="browseads"><strong>Pick up location: </strong>{{ advert.pickup_location }}</p>
+                                <p class="browseads"><strong>Rental
+                                    rate: </strong> &euro; {{ advert.daily_rental_rate }}</p>
+                                <p class="browseads"><strong>Rental
+                                    period: </strong> 1 day</p>
 
-        {% block content %}
-            <form role="form" method="post" id="payment-form" action="{% url 'buy_now_stripe' advert.id %}">
-                <div id="credit-card-errors" style="display:none">
-                    <div class="alert-message block-message error" id="stripe-error-message"></div>
-                </div>
+                                <p><em>Want to rent this item for longer than one day? Head over to <a href="{% url 'cart' %}">your cart</a> to adjust your rental period...</em></p>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
 
-                <legend>Buy It Now!</legend>
+                    <hr>
 
-                <div>
-                    <p><img height="100" width="100" src="{{ MEDIA_URL }}{{ advert.image }}"></p>
-                    <p>{{ advert.name }}</p>
-                    <p>{{ advert.description }}</p>
-                    <p>&euro;{{ advert.daily_rental_rate }}</p>
-                </div>
+                    {% csrf_token %}
+                    {{ form|as_bootstrap }}
+                    <div class="form-group">
+                        <input class="btn btn-success" id="submit_payment_btn" name="commit" type="submit"
+                               value="Submit Payment">
+                    </div>
+                </form>
 
-                <hr>
-
-                {% csrf_token %}
-                {{ form|as_bootstrap }}
-                <div class="form-group">
-                    <input class="btn btn-success" id="submit_payment_btn" name="commit" type="submit"
-                           value="Submit Payment">
-                </div>
-            </form>
-        {% endblock %}
-
+            </div>
+        </div>
     </div>
-</div>
+{% endblock %}

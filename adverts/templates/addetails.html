@@ -25,7 +25,6 @@
                          class="img-circle">
                 </a>
                 <p class="browseads advertiserdetails"><strong>Advertiser: </strong>{{ advert.advertiser.first_name }} {{ advert.advertiser.last_name }}</p>
-                <div class="browseads advertiserdetails"><strong>Advertiser rating: </strong></div><span class="rating"><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span></span>
                 <hr>
             </div>
             <div class="col-md-8 borderleft">
@@ -36,7 +35,7 @@
                 {% else %}
                     <div class="imageplaceholder">No images available</div>
                 {% endif %}
-                <p><strong>Description: </strong>{{ advert.description }}</p>
+                <p class="browseads"><strong>Description: </strong>{{ advert.description }}</p>
                 <p class="browseads"><strong>Rental rate per
                     day: </strong> &euro; {{ advert.daily_rental_rate }}</p>
                 <p class="browseads"><strong>Pick up location: </strong>{{ advert.pickup_location }}</p>
@@ -51,17 +50,10 @@
                         Add to cart
                     </button>
                     <button class="btn btn-success" onclick="location.href='{% url 'buy_now_stripe' advert.id %}'">
-                        Buy now
+                        Rent it now
                     </button>
                 </p>
             </div>
-{#            <div class="row">#}
-{#                <div class="col-md-12">#}
-{#                    {% load disqus_tags %}#}
-{#                    {% set_disqus_title advert.item %}#}
-{#                    {% disqus_show_comments %}#}
-{#                </div>#}
-{#            </div>#}
         </div>
     </div>
     <!-- End of Content -->

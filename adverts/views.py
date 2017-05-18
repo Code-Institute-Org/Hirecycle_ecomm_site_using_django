@@ -20,11 +20,9 @@ def addetails(request, id):
     post is not found
     """
     advert = get_object_or_404(Advert, pk=id)
-    # insurance_package = get_object_or_404(InsurancePackage, pk=id)
     advert.views += 1
     advert.save()
     return render(request, "addetails.html", {'advert': advert})
-    # return render(request, "addetails.html", {'advert': advert,'insurance_package': insurance_package})
 
 @login_required(login_url="/user/login?next=ads/new")
 def new_ad(request):

@@ -43,9 +43,10 @@ img.img-fluid.rounded{
 .borderleft{
     border-left: 3px solid #eaf6ea;
 }
-advertiserdetails{
-    text-align: center;
-}
+
+/*advertiserdetails{*/
+    /*text-align: center;*/
+/*}*/
 
 div.row.adlistitem{
     margin-bottom: 20px;

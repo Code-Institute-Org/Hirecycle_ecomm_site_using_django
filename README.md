@@ -8,7 +8,7 @@ This project is a fictional e-commerce site that I have built using Django. Some
 
 ## Demo
 
-A demo of this site is available[here](https://hirecycle-ecomm-site.herokuapp.com/)
+A demo of this site is available [here](https://hirecycle-ecomm-site.herokuapp.com/)
 
 ## Hosting
 
@@ -22,7 +22,7 @@ The Procfile declares the first command to be run to start the app: web: gunicor
 * If you wish to deploy this app locally, please clone or download this repo and use the following guidelines:
 
 ## Python
-You must have Python 2.7 installed on your system, available here. Download the correct version for your operating system and follow the installation instructions.
+You must have Python 2.7 installed on your system. Download the correct version for your operating system and follow the installation instructions.
 requirements.txt
 Create and activate a local virtual environment and pip install -r requirements.txt
 
@@ -39,7 +39,7 @@ Once you have re-configured to your own database, head to the command line and e
 Once you have migrated and have created your superuser name, email and password you can run the following command to run the app.
 * $ python manage.py runserver
 
-Navigate to http://localhost:8000/ to view your app locally.
+Navigate to http://localhost:8000/ to view your app locally.
 
 *More detailed deployment instructions to deploy into a live environment (using Heroku) are available in the deployment.txt file.
 
@@ -75,5 +75,5 @@ Manual testing was undertaken for this application and satisfactorily passed. A 
 
 ## Acknowledgments
 
-* Template by[Bootstrap](https://startbootstrap.com/)
+* Template by [Bootstrap](https://startbootstrap.com/)
 

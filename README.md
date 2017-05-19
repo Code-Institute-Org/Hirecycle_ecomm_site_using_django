@@ -8,7 +8,7 @@ This project is a fictional e-commerce site that I have built using Django. Some
 
 ## Demo
 
-A demo of this site is available [here](https://hirecycle-ecomm-site.herokuapp.com/)
+A demo of this site is available [here](https://hirecycle-ecomm-site.herokuapp.com/).
 
 ## Hosting
 

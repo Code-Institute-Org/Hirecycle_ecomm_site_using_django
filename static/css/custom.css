@@ -25,30 +25,20 @@ img.img-fluid.rounded{
     border: 3px solid #eaf6ea;
     margin: 2%
 }
-.rating {
-  unicode-bidi: bidi-override;
-  direction: rtl;
-}
-.rating > span {
-  display: inline-block;
-  position: relative;
-  width: 1.1em;
-}
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
-}
 
 .borderleft{
     border-left: 3px solid #eaf6ea;
 }
 
-/*advertiserdetails{*/
-    /*text-align: center;*/
-/*}*/
 
-div.row.adlistitem{
+p.myadverts {
+    margin-top: 50px;
+    color: rgb(61,170,0);
+    margin-bottom: 8px;
+}
+
+div.row.adlistitem {
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -150,3 +140,4 @@ td, th{
 button.btn.btn-success.adjust {
     padding: 3.5px;
 }
+

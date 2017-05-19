@@ -17,23 +17,22 @@
 
         <!-- Content Row -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 {% for advert in adverts %}
                     <div class="row adlistitem">
                         <hr>
-                        <div class="col-md-5 col-sm-6">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
                             {% if advert.image %}
                                 <img class="imageplaceholder" src="{{ MEDIA_URL }}{{ advert.image }}" style="width:300px; height: 266px; background-color: #12ABB2; color: #ffffff;">
                             {% else %}
                                 <div class="imageplaceholder">No images available</div>
                             {% endif %}
                         </div>
-                        <div class="col-md-7 col-sm-6">
+                        <div class="col-lg-8 col-md-6 col-sm-12">
                             <h3>{{ advert.item }}</h3>
                             <div>
                                 <p class="browseads"><strong>Rental rate per day: </strong> &euro; {{ advert.daily_rental_rate }}</p>
                                 <p class="browseads"><strong>Pick up location: </strong>{{ advert.pickup_location }}</p>
-                                <p class="browseads"><strong>Available from: </strong> Tue, April 4 2017 </p>
                                 <hr>
                                 <p><button class="btn btn-success" onclick="location.href='{% url 'addetails' advert.id %}'">View ad
                                         </button>

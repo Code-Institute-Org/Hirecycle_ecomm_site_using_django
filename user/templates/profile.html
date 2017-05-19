@@ -24,20 +24,25 @@
                 </a>
             </div>
             <div class="col-lg-9 col-md-8 col-sm-12 borderleft">
-                <p class="browseads advertiserdetails"><strong>Username: </strong>{{ user.username}}</p>
-                <p class="browseads advertiserdetails"><strong>Email address: </strong>{{ user.email}}</p>
-                <p class="browseads"><a href="{% url 'cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Go to my cart</a></p>
-                <p class="browseads"><a href="{% url 'password_reset' %}"><i class="fa fa-lock" aria-hidden="true"></i> Reset my password</a></p>
-            <hr>
-
-            {% for advert in adverts %}
-                {% if user.id == advert.advertiser_id %}
-                    <p><strong>My adverts:</strong></p>
-                    <p>{{ advert.item }}</p>
-                    <button class="btn btn-success" onclick="location.href='{% url 'edit_ad' advert.id %}'">Edit ad</button>
-                    <hr>
-                {% endif %}
-            {% endfor %}
+                <p class="browseads advertiserdetails"><strong>Username: </strong>{{ user.username }}</p>
+                <p class="browseads advertiserdetails"><strong>Email address: </strong>{{ user.email }}</p>
+                <p class="browseads"><a href="{% url 'cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    Go to my cart</a></p>
+                <p class="browseads"><a href="{% url 'password_reset' %}"><i class="fa fa-lock" aria-hidden="true"></i>
+                    Reset my password</a></p>
+                <hr>
+                <hr>
+                <p class="myadverts"><strong>My listed adverts:</strong></p>
+                {% for advert in adverts %}
+                    {% if user.id == advert.advertiser_id %}
+                        <p class="browseads"><strong>Advert title: </strong>{{ advert.item }}</p>
+                        <p class="browseads"><strong>Rental rate: </strong>{{ advert.daily_rental_rate }}</p>
+                        <button class="btn btn-success" onclick="location.href='{% url 'edit_ad' advert.id %}'">Edit
+                            ad
+                        </button>
+                        <hr>
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
         <!-- End of Content -->

@@ -21,12 +21,12 @@ The Procfile declares the first command to be run to start the app: web: gunicor
 
 * If you wish to deploy this app locally, please clone or download this repo and use the following guidelines:
 
-## Python
+### Python
 You must have Python 2.7 installed on your system. Download the correct version for your operating system and follow the installation instructions.
 requirements.txt
 Create and activate a local virtual environment and pip install -r requirements.txt
 
-## Local Server
+### Local Server
 ***N.B.: Please note that running this app locally (without connecting to a database) will result in errors. To connect to your own database, you will need to update the database configurations in the settings.py file and in your virtual environment. 
 * See line 9 to 14 to configure to a local database
 * See line 90 to configure to a hosted database e.g. Heroku Postgres

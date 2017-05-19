@@ -34,7 +34,7 @@
                 {% for advert in adverts %}
                     {% if user.id == advert.advertiser_id %}
                         <p class="browseads"><strong>Advert title: </strong>{{ advert.item }}</p>
-                        <p class="browseads"><strong>Rental rate: </strong>{{ advert.daily_rental_rate }}</p>
+                        <p class="browseads"><strong>Rental rate: </strong>&euro;{{ advert.daily_rental_rate }}</p>
                         <button class="btn btn-success" onclick="location.href='{% url 'edit_ad' advert.id %}'">Edit
                             ad
                         </button>

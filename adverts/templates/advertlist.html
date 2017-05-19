@@ -31,7 +31,7 @@
                         <div class="col-lg-8 col-md-6 col-sm-12">
                             <h3>{{ advert.item }}</h3>
                             <div>
-                                <p class="browseads"><strong>Rental rate per day: </strong> &euro; {{ advert.daily_rental_rate }}</p>
+                                <p class="browseads"><strong>Rental rate per day: </strong> &euro;{{ advert.daily_rental_rate }}</p>
                                 <p class="browseads"><strong>Pick up location: </strong>{{ advert.pickup_location }}</p>
                                 <hr>
                                 <p><button class="btn btn-success" onclick="location.href='{% url 'addetails' advert.id %}'">View ad

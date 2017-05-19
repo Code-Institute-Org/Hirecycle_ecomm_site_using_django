@@ -30,8 +30,6 @@
                     Go to my cart</a></p>
                 <p class="browseads"><a href="{% url 'password_reset' %}"><i class="fa fa-lock" aria-hidden="true"></i>
                     Reset my password</a></p>
-                <hr>
-                <hr>
                 <p class="myadverts"><strong>My listed adverts:</strong></p>
                 {% for advert in adverts %}
                     {% if user.id == advert.advertiser_id %}
